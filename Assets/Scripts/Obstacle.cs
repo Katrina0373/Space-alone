@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+       // if (collision.gameObject == CharacterController2D.Instance.gameObject)
+         //   Destroy(GameObject.Find("PLayer"));
     }
 }

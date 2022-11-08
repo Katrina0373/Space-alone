@@ -18,6 +18,7 @@ public class CharacterController2D : MonoBehaviour
     [Space]
 
     public UnityEvent OnLandEvent;
+    public static CharacterController2D Instance { get; set; } // синглтон, чтобы обращатьс€ к пол€м и методам класса, не создава€ его экземпл€р
 
     [System.Serializable]
     public class BoolEvent : UnityEvent<bool> { }
