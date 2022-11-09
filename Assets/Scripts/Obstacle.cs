@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
+    public GameObject player;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-       // if (collision.gameObject == CharacterController2D.Instance.gameObject)
-         //   Destroy(GameObject.Find("PLayer"));
+       
+       if (collision.gameObject == CharacterController2D.Instance.gameObject)
+           Destroy(player);
     }
 }
