@@ -9,10 +9,6 @@ public class Movement : MonoBehaviour
     float h_move = 0f;
     bool jump = false;
 
-
-    // Start is called before the first frame update
-    
-    // Update is called once per frame
     void Update()
     {
         h_move = Input.GetAxisRaw("Horizontal") * runS;
@@ -21,6 +17,8 @@ public class Movement : MonoBehaviour
         {
             jump = true;
         }
+
+        //if (controller.isLadder) controller.LadderMode(h_move);
     }
     void FixedUpdate ()
     {
