@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//шипы полностью уничтожают игрока
 public class Obstacle : MonoBehaviour
 {
-    public GameObject player;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-       
-       if (collision.gameObject == CharacterController2D.Instance.gameObject)
-           Destroy(player);
+        if (collision.gameObject.name == "AstroStay")
+            Destroy(collision.gameObject);
+            //заупскается уровень заново
     }
 }
