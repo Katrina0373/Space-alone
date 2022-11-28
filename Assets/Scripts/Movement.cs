@@ -18,7 +18,6 @@ public class Movement : MonoBehaviour
             jump = true;
         }
 
-        //if (controller.isLadder) controller.LadderMode(h_move);
     }
     void FixedUpdate ()
     {
