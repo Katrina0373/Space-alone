@@ -13,8 +13,8 @@ TagManager:
   - UI
   - Object
   - Telepatic shot
-  - 
-  - 
+  - Only runnind plat
+  - Running plat
   - 
   - 
   - 
@@ -40,4 +40,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: background
+    uniqueID: 2837536413
+    locked: 0
+  - name: plat
+    uniqueID: 1878232533
+    locked: 0
+  - name: player
+    uniqueID: 3884125467
     locked: 0
