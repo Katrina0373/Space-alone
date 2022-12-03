@@ -1,9 +1,11 @@
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
 {
-    [SerializeField] private float m_JumpForce = 400f;                          // —ила прыжка 
+    [SerializeField] private float m_JumpForce = 400f;// —ила прыжка 
+    [SerializeField] private float Dash_force = 400f; 
     [Range(0, .3f)][SerializeField] private float m_MovementSmoothing = .05f;   // ѕлавность движени€
     [SerializeField] private LayerMask m_WhatIsGround;                          // маска определ€юща€ то что €вл€етс€ проходимой поверхностью
     [SerializeField] private Transform m_GroundCheck;                           // сохран€ет информацию о том соприкосаетс€ ли персонаж с поверхностью или находитс€ в воздух
@@ -13,7 +15,6 @@ public class CharacterController2D : MonoBehaviour
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true;  // определить сторону в которую смотрит персонаж
     private Vector3 m_Velocity = Vector3.zero;
-    
     [Header("Events")]
     [Space]
 
@@ -47,10 +48,11 @@ public class CharacterController2D : MonoBehaviour
                     OnLandEvent.Invoke();
             }
         }
+        
     }
 
-
-    public void Move(float move, bool jump)
+    
+    public void Move(float move, bool jump, bool Dash)
     {
      
 
@@ -84,7 +86,17 @@ public class CharacterController2D : MonoBehaviour
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
         }
 
-        
+        if (m_Grounded == false && Dash )
+        {
+            if ( m_FacingRight)
+            {
+                m_Rigidbody2D.AddForce(new Vector2(Dash_force, 0f));
+            }
+            else
+            {
+                m_Rigidbody2D.AddForce(new Vector2(-Dash_force, 0f));
+            }
+        }
         
     }
 
