@@ -5,8 +5,8 @@ using UnityEngine;
 public class Ladder : MonoBehaviour
 {
     [SerializeField]
-
     float speed = 5;
+    
 
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -22,7 +22,7 @@ public class Ladder : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        collision.GetComponent<Rigidbody2D>().gravityScale = 1;
+        collision.GetComponent<Rigidbody2D>().gravityScale = 3;
         GetComponent<BoxCollider2D>().enabled = false;
     }
 }

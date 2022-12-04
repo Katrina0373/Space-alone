@@ -6,17 +6,13 @@ using UnityEngine;
 public class Button : MonoBehaviour
 {
     public bool IsPress = false; // нажата или нет
-    public GameObject player;
-    public Sprite leverDownSprite;
-    public SpriteRenderer spriteRenderer;
 
     private void OnTriggerStay2D(Collider2D collider)
     {
-        if (Input.GetKeyDown(KeyCode.E) && collider.gameObject.tag == "Player" && !IsPress)
+        if (Input.GetKeyDown(KeyCode.E) && collider.gameObject.tag == "Player")
         {
             //anim
-            IsPress = true; //переделаем потом на IsPress = !IsPress чтобы можно было выключать
-            spriteRenderer.sprite = leverDownSprite;
+            IsPress = !IsPress; //переделаем потом на IsPress = !IsPress чтобы можно было выключать
         }
     }
 }

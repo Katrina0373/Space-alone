@@ -29,10 +29,11 @@ public class RunWay : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("stop");
         if (other.gameObject.tag == "stop")
         {
+            Debug.Log("stop");
             speed = 0;
-            GetComponent<Rigidbody2D>().isKinematic = false;
             transform.position = new Vector2(transform.position.x, transform.position.y);
         }
     }

@@ -11,7 +11,7 @@ public class Door : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Sprite openDoorSprite;
 
-    void Update()
+    void FixedUpdate()
     {
         if (!IsOpen)
         {
