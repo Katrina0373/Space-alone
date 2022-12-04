@@ -8,6 +8,8 @@ public class Door : MonoBehaviour
     public Button[] buttons;     //массив кнопок, которых нужно активировать, чтобы открыть дверь
     private bool IsOpen = false; //открыта или нет
     public GameObject player;
+    public SpriteRenderer spriteRenderer;
+    public Sprite openDoorSprite;
 
     void FixedUpdate()
     {
@@ -20,6 +22,8 @@ public class Door : MonoBehaviour
                 IsOpen = x.IsPress;
             }
         }
+        else
+            spriteRenderer.sprite = openDoorSprite;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
