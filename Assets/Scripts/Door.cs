@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //скрипт для двери на следующий уровень
 public class Door : MonoBehaviour
@@ -30,12 +31,7 @@ public class Door : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player" && IsOpen)
         {
-            Destroy(collision.gameObject); //проверка работоспособности
-                                           //на самом деле тут анимация и переход на седующий уровень
+            SceneManager.LoadScene(0);
         }
     }
-
-
-
-
 }

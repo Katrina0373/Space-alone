@@ -6,10 +6,11 @@ public class RunWay : MonoBehaviour
 {
     public Button on;
     public float speed = 5f;
+    public GameObject stop;
 
     private void Update()
     {
-        if (on.IsPress)
+        if (on.IsPress && transform.position.x < stop.transform.position.x)
             transform.position = new Vector2(transform.position.x + speed * Time.deltaTime, transform.position.y);
     }
 
@@ -25,16 +26,5 @@ public class RunWay : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
             collision.transform.parent = null;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("stop");
-        if (other.gameObject.tag == "stop")
-        {
-            Debug.Log("stop");
-            speed = 0;
-            transform.position = new Vector2(transform.position.x, transform.position.y);
-        }
     }
 }

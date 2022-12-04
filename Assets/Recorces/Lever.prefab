@@ -65,6 +65,7 @@ MonoBehaviour:
   IsPress: 0
   spriteRenderer: {fileID: 2983520436425910528}
   leverDownSprite: {fileID: 21300000, guid: 53fe5536596828e4d825b293ed6fa148, type: 3}
+  leverUpSprite: {fileID: 21300000, guid: d002eee2b7a4ced4d82149a2f764a3b6, type: 3}
 --- !u!212 &2983520436425910528
 SpriteRenderer:
   m_ObjectHideFlags: 0

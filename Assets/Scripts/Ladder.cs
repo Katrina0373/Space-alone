@@ -23,6 +23,6 @@ public class Ladder : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         collision.GetComponent<Rigidbody2D>().gravityScale = 3;
-        GetComponent<BoxCollider2D>().enabled = false;
+        //GetComponent<BoxCollider2D>().enabled = false;
     }
 }
