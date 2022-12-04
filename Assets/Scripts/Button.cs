@@ -7,6 +7,8 @@ public class Button : MonoBehaviour
 {
     public bool IsPress = false; // нажата или нет
     public GameObject player;
+    public Sprite leverDownSprite;
+    public SpriteRenderer spriteRenderer;
 
     private void OnTriggerStay2D(Collider2D collider)
     {
@@ -14,6 +16,7 @@ public class Button : MonoBehaviour
         {
             //anim
             IsPress = true; //переделаем потом на IsPress = !IsPress чтобы можно было выключать
+            spriteRenderer.sprite = leverDownSprite;
         }
     }
 }

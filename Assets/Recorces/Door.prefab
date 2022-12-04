@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1330130467402390358}
   - component: {fileID: 1330130467402390357}
   - component: {fileID: 1330130467402390356}
+  - component: {fileID: 3727662225593850827}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -29,8 +30,7 @@ Transform:
   m_LocalPosition: {x: 15.65, y: 1.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1330130467661627246}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -50,10 +50,10 @@ BoxCollider2D:
   m_Offset: {x: -0.01085186, y: 0.014469087}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.35, y: 1.35}
+    newSize: {x: 1.35, y: 1.35}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -74,45 +74,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttons: []
   player: {fileID: 0}
---- !u!1 &1330130467661627245
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1330130467661627246}
-  - component: {fileID: 1330130467661627247}
-  m_Layer: 0
-  m_Name: PortalOff
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1330130467661627246
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1330130467661627245}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1330130467402390358}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1330130467661627247
+  spriteRenderer: {fileID: 3727662225593850827}
+  openDoorSprite: {fileID: 21300000, guid: a250755ac1951bb4fa0ea9b06a3408a8, type: 3}
+--- !u!212 &3727662225593850827
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1330130467661627245}
+  m_GameObject: {fileID: 1330130467402390363}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -152,7 +122,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.4, y: 5.4}
+  m_Size: {x: 1.35, y: 1.35}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
