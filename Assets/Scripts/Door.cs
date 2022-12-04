@@ -9,7 +9,7 @@ public class Door : MonoBehaviour
     private bool IsOpen = false; //открыта или нет
     public GameObject player;
 
-    void Update()
+    void FixedUpdate()
     {
         if (!IsOpen)
         {
