@@ -20,6 +20,10 @@ public class Movement : MonoBehaviour
         {
             Vinyl_n = collision.gameObject.name;
         }
+        if (collision.gameObject.tag == "Charger")
+        {
+            Energy = MaxEnergy;
+        }
     }
     void Update()
     {
@@ -31,10 +35,10 @@ public class Movement : MonoBehaviour
             jump = true;
             animator.SetBool("Is_Jump", true);
         }
-        if (Input.GetButtonDown("Dash") && Vinyl_n == "Dash" &&  Energy >= 10)
+        if (Input.GetButtonDown("Dash") && Vinyl_n == "Dash" && Energy >= 10)
         {
             Dash = true;
-            Energy = Energy - 10;
+            Energy = controller.energy(Energy);
         }
     }
     void FixedUpdate ()

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - stop
   - Vinyl
+  - Charger
   layers:
   - Default
   - TransparentFX

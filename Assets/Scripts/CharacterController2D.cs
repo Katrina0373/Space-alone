@@ -11,7 +11,8 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] private Transform m_GroundCheck;                           // сохраняет информацию о том соприкосается ли персонаж с поверхностью или находится в воздух
 
     const float k_GroundedRadius = .2f; 
-    private bool m_Grounded;            
+    private bool m_Grounded;
+    public bool cooldown = false;
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true;  // определить сторону в которую смотрит персонаж
     private Vector3 m_Velocity = Vector3.zero;
@@ -84,22 +85,32 @@ public class CharacterController2D : MonoBehaviour
             // добавление силы по вертикали
             m_Grounded = false;
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+            cooldown = true;
         }
 
-        if (m_Grounded == false && Dash )
+        if (m_Grounded == false && Dash && cooldown)
         {
-            if ( m_FacingRight)
+            if (m_FacingRight)
             {
                 m_Rigidbody2D.AddForce(new Vector2(Dash_force, 0f));
+
             }
             else
             {
                 m_Rigidbody2D.AddForce(new Vector2(-Dash_force, 0f));
             }
+            cooldown = false;
         }
-        
-    }
 
+    }
+    public float energy(float e)
+    {
+        if (cooldown)
+        {
+            e -= 10;
+        }
+        return e;
+    }
 
     private void Flip()
     {
