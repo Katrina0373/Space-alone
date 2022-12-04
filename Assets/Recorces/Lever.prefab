@@ -63,9 +63,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPress: 0
-  player: {fileID: 0}
-  leverDownSprite: {fileID: 21300000, guid: 53fe5536596828e4d825b293ed6fa148, type: 3}
   spriteRenderer: {fileID: 2983520436425910528}
+  leverDownSprite: {fileID: 21300000, guid: 53fe5536596828e4d825b293ed6fa148, type: 3}
 --- !u!212 &2983520436425910528
 SpriteRenderer:
   m_ObjectHideFlags: 0

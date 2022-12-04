@@ -6,6 +6,8 @@ using UnityEngine;
 public class Button : MonoBehaviour
 {
     public bool IsPress = false; // нажата или нет
+    public SpriteRenderer spriteRenderer;
+    public Sprite leverDownSprite;
 
     private void OnTriggerStay2D(Collider2D collider)
     {
