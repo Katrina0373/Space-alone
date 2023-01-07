@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 //скрипт для двери на следующий уровень
 public class Door : MonoBehaviour
-{
-    public Button[] buttons;     //массив кнопок, которых нужно активировать, чтобы открыть дверь
-    private bool IsOpen = false; //открыта или нет
-    public GameObject player;
-    public SpriteRenderer spriteRenderer;
-    public Sprite openDoorSprite;
+{   private bool IsOpen = false; //открыта или нет
+    
+    [SerializeField] Button[] buttons;     //массив кнопок, которых нужно активировать, чтобы открыть дверь
+    [SerializeField] GameObject player;
+    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] Sprite openDoorSprite;
 
     void FixedUpdate()
     {
@@ -19,12 +19,17 @@ public class Door : MonoBehaviour
             foreach (var x in buttons)
             {
                 if (!x.IsPress)
+                {
+                    IsOpen = false;
                     break;
-                IsOpen = x.IsPress;
+                }
+                IsOpen = true;
             }
         }
         else
+        {
             spriteRenderer.sprite = openDoorSprite;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
