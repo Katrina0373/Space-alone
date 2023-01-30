@@ -377,6 +377,7 @@
 "Assets/Scripts/pause_menu.cs"
 "Assets/Scripts/roter.cs"
 "Assets/Scripts/RunWay.cs"
+"Assets/Scripts/Switch.cs"
 "Assets/Scripts/Telephatic.cs"
 "Assets/Scripts/Vinyl.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"

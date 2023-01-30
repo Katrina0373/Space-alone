@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 
 //скрипт для двери на следующий уровень
 public class Door : MonoBehaviour
-{   private bool IsOpen = false; //открыта или нет
-    
+{   [SerializeField] bool IsOpen; //открыта или нет
     [SerializeField] Button[] buttons;     //массив кнопок, которых нужно активировать, чтобы открыть дверь
     [SerializeField] GameObject player;
     [SerializeField] SpriteRenderer spriteRenderer;
