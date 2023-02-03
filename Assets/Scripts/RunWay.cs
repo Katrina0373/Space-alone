@@ -10,7 +10,7 @@ public class RunWay : MonoBehaviour
 
     private void Update()
     {
-        if (on.IsPress && transform.position.x < stop.transform.position.x)
+        if (on.isPress && transform.position.x < stop.transform.position.x)
             transform.position = new Vector2(transform.position.x + speed * Time.deltaTime, transform.position.y);
     }
 

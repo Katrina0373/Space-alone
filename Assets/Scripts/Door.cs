@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 //скрипт для двери на следующий уровень
 public class Door : MonoBehaviour
-{   [SerializeField] bool IsOpen; //открыта или нет
-    [SerializeField] Button[] buttons;     //массив кнопок, которых нужно активировать, чтобы открыть дверь
+{   [SerializeField] bool IsOpen;          //открыта или нет
+    [SerializeField] Button[] buttons;     //массив кнопок, которые нужно активировать, чтобы открыть дверь
     [SerializeField] GameObject player;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Sprite openDoorSprite;
@@ -17,7 +17,7 @@ public class Door : MonoBehaviour
         {
             foreach (var x in buttons)
             {
-                if (!x.IsPress)
+                if (!x.isPress)
                 {
                     IsOpen = false;
                     break;
