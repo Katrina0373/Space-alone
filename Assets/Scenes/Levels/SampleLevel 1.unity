@@ -130,6 +130,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1915185283205700839, guid: 63b450a47450d894aa3bbcef4e5cf561,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1915185283205700839, guid: 63b450a47450d894aa3bbcef4e5cf561,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1915185283911961672, guid: 63b450a47450d894aa3bbcef4e5cf561,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4401423878582667359, guid: 63b450a47450d894aa3bbcef4e5cf561,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1531,6 +1546,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.98717135
+      objectReference: {fileID: 0}
+    - target: {fileID: 7210385181494825233, guid: 93d45e77df001a5479072a12a6df89f7,
+        type: 3}
+      propertyPath: bar
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7210385181494825233, guid: 93d45e77df001a5479072a12a6df89f7,
         type: 3}

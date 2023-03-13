@@ -13,6 +13,12 @@ public class Movement : MonoBehaviour
     float h_move = 0f;
     bool jump = false;
     bool Dash = false;
+    public EnergyBar bar;
+
+    private void Start()
+    {
+        bar.SetMaxEnergy(MaxEnergy);
+    }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -23,6 +29,7 @@ public class Movement : MonoBehaviour
         if (collision.gameObject.tag == "Charger")
         {
             Energy = MaxEnergy;
+            bar.setEnergy(Energy);
         }
     }
     void Update()
@@ -39,6 +46,7 @@ public class Movement : MonoBehaviour
         {
             Dash = true;
             Energy = controller.energy(Energy);
+            bar.setEnergy(Energy);
         }
     }
     void FixedUpdate ()
