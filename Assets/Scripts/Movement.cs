@@ -12,8 +12,8 @@ public class Movement : MonoBehaviour
     public string Vinyl_n = "a";
     float h_move = 0f;
     bool jump = false;
-    bool Dash = false;
-    public EnergyBar bar;
+    public bool Dash = false;
+    [SerializeField] EnergyBar bar;
 
     private void Start()
     {

@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Lever : Button
+public class Lever : Pushbutton
 {
-    public SpriteRenderer spriteRenderer;
-    public Sprite leverDownSprite;
-    public Sprite leverUpSprite;
+    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] Sprite leverDownSprite;
+    [SerializeField] Sprite leverUpSprite;
     bool forSprite = false;
 
     private void OnTriggerStay2D(Collider2D collider)

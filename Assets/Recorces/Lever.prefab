@@ -47,9 +47,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.021588326, y: 0.03141284}
+  m_Offset: {x: -0.27084923, y: 0.059108734}
   serializedVersion: 2
-  m_Radius: 0.42097235
+  m_Radius: 1
 --- !u!114 &6334093559457595071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33aca6531a49cc9469fa90d4f7513310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsPress: 0
+  isPress: 0
   spriteRenderer: {fileID: 2983520436425910528}
   leverDownSprite: {fileID: 21300000, guid: 53fe5536596828e4d825b293ed6fa148, type: 3}
   leverUpSprite: {fileID: 21300000, guid: d002eee2b7a4ced4d82149a2f764a3b6, type: 3}

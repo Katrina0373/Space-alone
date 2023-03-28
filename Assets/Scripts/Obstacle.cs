@@ -13,5 +13,9 @@ public class Obstacle : MonoBehaviour
             Destroy(collision.gameObject);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+        else if (collision.gameObject.tag.Equals("Enemy"))
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }

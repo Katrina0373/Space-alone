@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RunWay : MonoBehaviour
 {
-    public Button on;
+    public Pushbutton on;
     public float speed = 5f;
     public GameObject stop;
 

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1330130467402390358}
   - component: {fileID: 1330130467402390357}
-  - component: {fileID: 1330130467402390356}
+  - component: {fileID: 3762611773686315267}
   - component: {fileID: 3727662225593850827}
   m_Layer: 0
   m_Name: Door
@@ -60,7 +60,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.558691, y: 1.2025684}
   m_EdgeRadius: 0
---- !u!114 &1330130467402390356
+--- !u!114 &3762611773686315267
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -69,12 +69,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1330130467402390363}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cb548c14d33f2945a6d23b6609c5d32, type: 3}
+  m_Script: {fileID: 11500000, guid: 75c01043fa87300408cc08bb241e594b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   IsOpen: 0
   buttons: []
-  player: {fileID: 7210385181494825247, guid: 93d45e77df001a5479072a12a6df89f7, type: 3}
   spriteRenderer: {fileID: 3727662225593850827}
   openDoorSprite: {fileID: 21300000, guid: a250755ac1951bb4fa0ea9b06a3408a8, type: 3}
 --- !u!212 &3727662225593850827

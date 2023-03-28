@@ -1,15 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-//скрипт для двери на следующий уровень
+//скрипт для любой открывающейся штуки
 public class Door : MonoBehaviour
-{   [SerializeField] bool IsOpen;          //открыта или нет
-    [SerializeField] Button[] buttons;     //массив кнопок, которые нужно активировать, чтобы открыть дверь
-    [SerializeField] GameObject player;
-    [SerializeField] SpriteRenderer spriteRenderer;
-    [SerializeField] Sprite openDoorSprite;
+{   public bool IsOpen;          //открыта или нет
+    public Pushbutton[] buttons;     //массив кнопок, которые нужно активировать, чтобы открыть дверь
+    
 
     void FixedUpdate()
     {
@@ -27,15 +24,10 @@ public class Door : MonoBehaviour
         }
         else
         {
-            spriteRenderer.sprite = openDoorSprite;
+            Opening();
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "Player" && IsOpen)
-        {
-            SceneManager.LoadScene(0);
-        }
-    }
+    protected virtual void Opening() { }
+    
 }
