@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1741429478387337426}
   - component: {fileID: 1741429478387337427}
-  - component: {fileID: 1741429478387337424}
   - component: {fileID: 1741429478387337425}
   m_Layer: 10
   m_Name: Dash
@@ -87,18 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1741429478387337424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1741429478387337422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d969e88306e5e314fba97b8f47b2be6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &1741429478387337425
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

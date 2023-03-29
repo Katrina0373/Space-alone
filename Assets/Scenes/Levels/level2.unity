@@ -365,6 +365,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door
       objectReference: {fileID: 0}
+    - target: {fileID: 3762611773686315267, guid: 85abcc17316099a429dfb866e5461638,
+        type: 3}
+      propertyPath: buttons.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3762611773686315267, guid: 85abcc17316099a429dfb866e5461638,
+        type: 3}
+      propertyPath: buttons.Array.data[0]
+      value: 
+      objectReference: {fileID: 745514611}
+    - target: {fileID: 3762611773686315267, guid: 85abcc17316099a429dfb866e5461638,
+        type: 3}
+      propertyPath: buttons.Array.data[1]
+      value: 
+      objectReference: {fileID: 927033980}
+    - target: {fileID: 3762611773686315267, guid: 85abcc17316099a429dfb866e5461638,
+        type: 3}
+      propertyPath: buttons.Array.data[2]
+      value: 
+      objectReference: {fileID: 1608868509}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85abcc17316099a429dfb866e5461638, type: 3}
 --- !u!1 &125786329
@@ -5999,6 +6019,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 30883989205143361, guid: 74ae82bd7edc0e347a889b1c767e16eb,
+        type: 3}
+      propertyPath: buttons.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 30883989205143361, guid: 74ae82bd7edc0e347a889b1c767e16eb,
         type: 3}
       propertyPath: buttons.Array.data[0]
