@@ -9,7 +9,8 @@ public class Enemy : MonoBehaviour
     {
         if (collision.tag.Equals("Player"))
         {
-            if (collision.gameObject.GetComponent<Movement>().Dash)
+            Movement sup = collision.gameObject.GetComponent<Movement>();
+            if (sup.Vinyl_n == "Dash")
             {
                 Destroy(this.gameObject);
             }

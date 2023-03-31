@@ -9,14 +9,17 @@ public class CharacterController2D : MonoBehaviour
     [Range(0, .3f)][SerializeField] private float m_MovementSmoothing = .05f;   // Плавность движения
     [SerializeField] private LayerMask m_WhatIsGround;                          // маска определяющая то что является проходимой поверхностью
     [SerializeField] private Transform m_GroundCheck;                           // сохраняет информацию о том соприкосается ли персонаж с поверхностью или находится в воздух
-
-    [SerializeField] int energyForDush = 10;
+    [SerializeField] private Transform m_HeadCheck;
+    [SerializeField] private Transform cont;
+    [SerializeField] private bool Up = false;
+    public int energyForDush;
     const float k_GroundedRadius = .2f; 
     private bool m_Grounded;
-    public bool cooldown = false;
+    public bool cooldown = true;
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true;  // определить сторону в которую смотрит персонаж
     private Vector3 m_Velocity = Vector3.zero;
+    public bool UsAb = false;
     [Header("Events")]
     [Space]
 
@@ -54,14 +57,14 @@ public class CharacterController2D : MonoBehaviour
     }
 
     
-    public void Move(float move, bool jump, bool Dash)
+    public void Move(float move, bool jump, string Vinyl)
     {
      
 
         
         if (m_Grounded)
         {
-
+            cooldown = true;
             // определение скорость перемещения
             Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
            
@@ -86,21 +89,64 @@ public class CharacterController2D : MonoBehaviour
             // добавление силы по вертикали
             m_Grounded = false;
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
-            cooldown = true;
+            
         }
 
-        if (m_Grounded == false && Dash && cooldown)
+        if ( cooldown && UsAb)
         {
-            if (m_FacingRight)
+            switch (Vinyl, m_Grounded)
             {
-                m_Rigidbody2D.AddForce(new Vector2(Dash_force, 0f));
+                case ("Dash", false):
+                    {
+                        if (m_FacingRight)
+                        {
+                            m_Rigidbody2D.AddForce(new Vector2(Dash_force, 0f));
+
+                        }
+                        else
+                        {
+                            m_Rigidbody2D.AddForce(new Vector2(-Dash_force, 0f));
+                        }
+                        cooldown = false;
+                        UsAb = false;
+                        break;
+                    }
+                case ("SwitchGravity", true):
+                    {
+                        if (!Up)
+                        {
+                            m_FacingRight = !m_FacingRight;
+                            transform.eulerAngles = new Vector3(0, 0, 180f);
+                            transform.position = new Vector3(transform.position.x, transform.position.y + 3, 0);
+                            Physics2D.gravity = new Vector2(0,9.8f);
+                            Up = true;
+                            
+                           /* cont = m_GroundCheck.transform;
+                            m_GroundCheck = m_HeadCheck.transform;
+                            m_HeadCheck = cont.transform;
+                            m_JumpForce *= -1;*/
+                        }
+                        else
+                        {
+                            m_FacingRight = !m_FacingRight;
+                            transform.eulerAngles = Vector3.zero;
+                            transform.position = new Vector3(transform.position.x, transform.position.y - 3, 0);
+                            Physics2D.gravity = new Vector2(0,- 9.8f);
+                            Up = false;
+                            /*Transform x = m_HeadCheck.transform;
+                            m_HeadCheck = m_GroundCheck.transform;
+                            m_GroundCheck = x.transform;
+                            m_JumpForce *= -1;*/
+                        }
+                        cooldown = false;
+                        break;
+                    }
+                default:
+                    break;
 
             }
-            else
-            {
-                m_Rigidbody2D.AddForce(new Vector2(-Dash_force, 0f));
-            }
-            cooldown = false;
+            
+            UsAb = false;
         }
 
     }
