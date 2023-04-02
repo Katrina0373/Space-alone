@@ -8,6 +8,12 @@ public class EndDoor : Door
 {
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Sprite openDoorSprite;
+
+    protected override void Opening()
+    {
+        spriteRenderer.sprite = openDoorSprite;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player" && IsOpen)

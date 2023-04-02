@@ -5,18 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected bool isCollisioln = false;
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.tag.Equals("Player"))
+        isCollisioln = true;
+        if (collision.gameObject.tag.Equals("Player"))
         {
-            Movement sup = collision.gameObject.GetComponent<Movement>();
+            /*Movement sup = collision.gameObject.GetComponent<Movement>();
             if (sup.Vinyl_n == "Dash")
             {
                 Destroy(this.gameObject);
             }
-            else { Destroy(collision.gameObject);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            }
+            else
+            {*/
+                Destroy(collision.gameObject);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            //}
         }
     }
 }

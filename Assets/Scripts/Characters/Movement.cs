@@ -17,6 +17,9 @@ public class Movement : MonoBehaviour
 
     private void Start()
     {
+        bar.SetMaxEnergy(MaxEnergy);
+        if(Physics2D.gravity.y > 0)
+            Physics2D.gravity = new Vector2(0, -9.81f);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -48,6 +51,7 @@ public class Movement : MonoBehaviour
         if (Input.GetButtonDown("Dash") && Energy >= controller.energyForDush && Vinyl_n != "a")
         {
             Energy = controller.energy(Energy);
+            bar.setEnergy(Energy);
             controller.UsAb = true;
         }
 

@@ -2,30 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WalkEnemy : Enemy
+
+class WalkEnemy:Enemy
 {
-    [SerializeField] float speed = 3.5f;
-    [SerializeField] bool isLeft = false;
-    private Vector3 dir;
+    public float speed = 2f;
+    public float diapason = 1f;
+
+    private Rigidbody2D rb2d;
 
     private void Start()
     {
-        dir = transform.right;
-        if (isLeft) dir *= -1f;
+        rb2d = GetComponent<Rigidbody2D>();
+        StartCoroutine(c_Move());
     }
 
-    private void Update()
+    IEnumerator c_Move()
     {
-        Move();
-    }
+        var min = transform.position.x - diapason;
+        var max = transform.position.x + diapason;
 
-    private void Move()
-    {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position +
-            transform.up * 0.1f + transform.right * dir.x * 0.7f, 0.1f);
+        var direction = Mathf.Sign(speed);
 
-        if (colliders.Length > 0) dir *= -1f;
-        transform.position = Vector3.MoveTowards(transform.position, 
-            transform.position + dir, Time.deltaTime);
+        while (true)
+        {
+            if (transform.position.x > max && direction > 0.0f)
+            {
+                direction = -direction;
+            }
+            else if (transform.position.x < min && direction < 0.0f)
+            {
+                direction = -direction;
+            }
+
+            rb2d.velocity = new Vector2(speed * direction, rb2d.velocity.y);
+
+            yield return null;
+        }
     }
 }
