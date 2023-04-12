@@ -17,7 +17,6 @@ public class LevelManager : MonoBehaviour
 
 	public void RestartScene()
     {
-		Debug.Log("it works");
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -25,5 +24,10 @@ public class LevelManager : MonoBehaviour
     {
 		Application.Quit();
 		Debug.Log("Exit");
+    }
+
+	public void NextLevel()
+    {
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

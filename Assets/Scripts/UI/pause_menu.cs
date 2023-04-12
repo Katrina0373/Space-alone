@@ -1,16 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class pause_menu : MonoBehaviour
 {
     public static bool GameIsPause = false;
     public GameObject pauseMenuUI;
+    public GameObject DeathScreenUI;
+    public GameObject SuccessScreenUI;
+    [SerializeField] GameObject text;
 
     // Update is called once per frame
     private void Start()
     {
         Resume();
+        DeathScreenUI.SetActive(false);
+        SuccessScreenUI.SetActive(false);
     }
     void Update()
     {
@@ -36,5 +40,18 @@ public class pause_menu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPause = true;
+    }
+
+    public void PlayerDeath(string reason)
+    {
+        Time.timeScale = 0f;
+        DeathScreenUI.SetActive(true);
+        text.GetComponent<Text>().text = reason;
+    }
+
+    public void Success()
+    {
+        Time.timeScale = 0f;
+        SuccessScreenUI.SetActive(true);
     }
 }

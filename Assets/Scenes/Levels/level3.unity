@@ -23725,6 +23725,90 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fea692579b17744bbe1329ba39c325d, type: 3}
+--- !u!1001 &1224284444
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6930863663008699013, guid: 8794e8f97fe62624abc5435bd757f8b9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930863663008699013, guid: 8794e8f97fe62624abc5435bd757f8b9,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.86742
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930863663008699013, guid: 8794e8f97fe62624abc5435bd757f8b9,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.76495606
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930863663008699013, guid: 8794e8f97fe62624abc5435bd757f8b9,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.86742
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930863663008699013, guid: 8794e8f97fe62624abc5435bd757f8b9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 54.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930863663008699013, guid: 8794e8f97fe62624abc5435bd757f8b9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930863663008699013, guid: 8794e8f97fe62624abc5435bd757f8b9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.9767563
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930863663008699013, guid: 8794e8f97fe62624abc5435bd757f8b9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930863663008699013, guid: 8794e8f97fe62624abc5435bd757f8b9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930863663008699013, guid: 8794e8f97fe62624abc5435bd757f8b9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930863663008699013, guid: 8794e8f97fe62624abc5435bd757f8b9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930863663008699013, guid: 8794e8f97fe62624abc5435bd757f8b9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930863663008699013, guid: 8794e8f97fe62624abc5435bd757f8b9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930863663008699013, guid: 8794e8f97fe62624abc5435bd757f8b9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930863663008699019, guid: 8794e8f97fe62624abc5435bd757f8b9,
+        type: 3}
+      propertyPath: m_Name
+      value: Border
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8794e8f97fe62624abc5435bd757f8b9, type: 3}
 --- !u!1001 &1289941667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24357,7 +24441,7 @@ Camera:
   far clip plane: 1500
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.7
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -24400,8 +24484,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 497b8a5f4ff39b64bb0caaf40ea74a70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 2, y: 1}
-  damping: 1.5
+  offset: {x: 1, y: 1}
+  damping: 2.5
   faceLeft: 0
 --- !u!82 &1510486842
 AudioSource:
@@ -24417,7 +24501,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

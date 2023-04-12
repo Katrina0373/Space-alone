@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
+    
     protected bool isCollisioln = false;
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -19,7 +20,7 @@ public class Enemy : MonoBehaviour
             else
             {*/
                 Destroy(collision.gameObject);
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            GameObject.Find("pause").GetComponent<pause_menu>().PlayerDeath("убит монстром");
             //}
         }
     }

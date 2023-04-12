@@ -18,7 +18,7 @@ public class EndDoor : Door
     {
         if (collision.gameObject.tag == "Player" && IsOpen)
         {
-            SceneManager.LoadScene("MainMenu");
+            GameObject.Find("pause").GetComponent<pause_menu>().Success();
         }
     }
 }
