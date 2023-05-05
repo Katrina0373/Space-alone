@@ -20,6 +20,7 @@ public class CharacterController2D : MonoBehaviour
     private bool m_FacingRight = true;  // определить сторону в которую смотрит персонаж
     private Vector3 m_Velocity = Vector3.zero;
     public bool UsAb = false;
+    bool is_Climbing = false;
     [Header("Events")]
     [Space]
 
@@ -40,58 +41,98 @@ public class CharacterController2D : MonoBehaviour
 
     private void FixedUpdate()
     {
-        bool wasGrounded = m_Grounded;
-        m_Grounded = false;
-
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
-        for (int i = 0; i < colliders.Length; i++)
+        if(is_Climbing) 
         {
-            if (colliders[i].gameObject != gameObject)
+            if (Input.GetAxisRaw("Vertical") == 1)
             {
-                m_Grounded = true;
-                if (!wasGrounded)
-                    OnLandEvent.Invoke();
+                m_Rigidbody2D.AddForce(new Vector2(0f, 20));
+                Physics2D.gravity = new Vector2(0, 0);
+
+            }
+            else
+            {
+                m_Rigidbody2D.AddForce(new Vector2(0f, -10));
             }
         }
+        else
+        {
+            if(!Up)
+            {
+                Physics2D.gravity = new Vector2(0, -9.8f);
+            }
+            else
+            {
+                Physics2D.gravity = new Vector2(0, 9.8f);
+            }
+            bool wasGrounded = m_Grounded;
+            m_Grounded = false;
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                if (colliders[i].gameObject != gameObject)
+                {
+                    m_Grounded = true;
+                    if (!wasGrounded)
+                        OnLandEvent.Invoke();
+                }
+            }
+        }
+        
         
     }
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "GameController")
+        {
+            is_Climbing = true;
+        }
 
-    
+    }
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "GameController")
+        {
+            is_Climbing = false;
+        }
+    }
     public void Move(float move, bool jump, string Vinyl)
     {
-     
 
-        
-        if (m_Grounded)
+
+
+        cooldown = true;
+        // определение скорость перемещения
+        Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
+
+        m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+
+        // разворот игрока в сторону перемещения
+        if (move > 0 && !m_FacingRight)
         {
-            cooldown = true;
-            // определение скорость перемещения
-            Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
-           
-            m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 
-            // разворот игрока в сторону перемещения
-            if (move > 0 && !m_FacingRight)
-            {
-          
-                Flip();
-            }
-         
-            else if (move < 0 && m_FacingRight)
-            {
-        
-                Flip();
-            }
+            Flip();
+        }
+
+        else if (move < 0 && m_FacingRight)
+        {
+
+            Flip();
         }
         // прыжок
-        if (m_Grounded && jump)
+        if (m_Grounded && jump && !Up)
         {
             // добавление силы по вертикали
             m_Grounded = false;
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
             
         }
+        else if (m_Grounded && jump && Up)
+        {
+            // добавление силы по вертикали
+            m_Grounded = false;
+            m_Rigidbody2D.AddForce(new Vector2(0f, -m_JumpForce));
 
+        }
         if ( cooldown && UsAb)
         {
             switch (Vinyl, m_Grounded)
@@ -118,7 +159,6 @@ public class CharacterController2D : MonoBehaviour
                             m_FacingRight = !m_FacingRight;
                             transform.eulerAngles = new Vector3(0, 0, 180f);
                             transform.position = new Vector3(transform.position.x, transform.position.y + 3, 0);
-                            Physics2D.gravity = new Vector2(0,9.8f);
                             Up = true;
                             
                            /* cont = m_GroundCheck.transform;
@@ -131,7 +171,6 @@ public class CharacterController2D : MonoBehaviour
                             m_FacingRight = !m_FacingRight;
                             transform.eulerAngles = Vector3.zero;
                             transform.position = new Vector3(transform.position.x, transform.position.y - 3, 0);
-                            Physics2D.gravity = new Vector2(0,- 9.8f);
                             Up = false;
                             /*Transform x = m_HeadCheck.transform;
                             m_HeadCheck = m_GroundCheck.transform;
@@ -150,9 +189,13 @@ public class CharacterController2D : MonoBehaviour
         }
 
     }
-    public float energy(float e)
+    public float energy(float e, string Vinyl)
     {
-        if (cooldown)
+        if (cooldown && Vinyl == "Dash" && !m_Grounded)
+        {
+            e -= energyForDush;
+        }
+        else if (cooldown && Vinyl == "SwitchGravity" && m_Grounded)
         {
             e -= energyForDush;
         }
@@ -169,6 +212,8 @@ public class CharacterController2D : MonoBehaviour
         theScale.x *= -1;
         transform.localScale = theScale;
     }
+
+    
    
 }
 
