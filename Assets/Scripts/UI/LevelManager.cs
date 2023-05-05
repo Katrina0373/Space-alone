@@ -23,11 +23,11 @@ public class LevelManager : MonoBehaviour
 	public void ExitPressed()
     {
 		Application.Quit();
-		Debug.Log("Exit");
     }
 
 	public void NextLevel()
     {
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
 }

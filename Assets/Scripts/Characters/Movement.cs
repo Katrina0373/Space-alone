@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour
     public string Vinyl_n = "a";
     float h_move = 0f;
     bool jump = false;
+    //[SerializeField] AudioSource runningSound;
     [SerializeField] EnergyBar bar;
 
 
@@ -42,6 +43,13 @@ public class Movement : MonoBehaviour
     {
         h_move = Input.GetAxisRaw("Horizontal") * runS;
         animator.SetFloat("Speed", Mathf.Abs(h_move));
+
+        /*if (Mathf.Abs(h_move) > 0f && controller.m_Grounded)
+        {
+            if (!runningSound.isPlaying)
+                runningSound.Play();
+        }
+        else runningSound.Stop();*/
 
         if (Input.GetButtonDown("Jump"))
         {

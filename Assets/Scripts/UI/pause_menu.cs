@@ -7,6 +7,10 @@ public class pause_menu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject DeathScreenUI;
     public GameObject SuccessScreenUI;
+    public Sprite on;
+    public Sprite off;
+    public Button sound;
+    private bool isPlaying = true;
     [SerializeField] GameObject text;
 
     // Update is called once per frame
@@ -53,5 +57,21 @@ public class pause_menu : MonoBehaviour
     {
         Time.timeScale = 0f;
         SuccessScreenUI.SetActive(true);
+    }
+
+    public void SoundChange()
+    {
+        if (isPlaying)
+        {
+            isPlaying = false;
+            GameObject.Find("Main Camera").GetComponent<AudioSource>().Stop();
+            sound.GetComponent<Image>().sprite = off;
+        }
+        else
+        {
+            isPlaying = true;
+            GameObject.Find("Main Camera").GetComponent<AudioSource>().Play();
+            sound.GetComponent<Image>().sprite = on;
+        }
     }
 }

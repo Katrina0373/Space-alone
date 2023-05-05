@@ -8,5 +8,4 @@ public class JustInt : MonoBehaviour
     public static int EC = 100;
     public int EnergyCost = EC;
 
-
 }

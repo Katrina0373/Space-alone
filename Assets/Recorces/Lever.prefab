@@ -64,8 +64,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPress: 0
   spriteRenderer: {fileID: 2983520436425910528}
-  leverDownSprite: {fileID: 21300000, guid: 53fe5536596828e4d825b293ed6fa148, type: 3}
-  leverUpSprite: {fileID: 21300000, guid: d002eee2b7a4ced4d82149a2f764a3b6, type: 3}
+  leverDownSprite: {fileID: 21300000, guid: 59952390e086a9c4aadbf2f784868ba0, type: 3}
+  leverUpSprite: {fileID: 21300000, guid: a3415dc9adc2dac4b92ac26e130f84c1, type: 3}
 --- !u!212 &2983520436425910528
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -107,7 +107,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: d002eee2b7a4ced4d82149a2f764a3b6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a3415dc9adc2dac4b92ac26e130f84c1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

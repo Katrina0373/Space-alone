@@ -4,17 +4,18 @@ using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
 {
-    [SerializeField] private float m_JumpForce = 400f;// —ила прыжка 
-    [SerializeField] private float Dash_force = 400f; 
+    [SerializeField] private float m_JumpForce = 4000f;// —ила прыжка 
+    [SerializeField] private float Dash_force = 30000f; 
     [Range(0, .3f)][SerializeField] private float m_MovementSmoothing = .05f;   // ѕлавность движени€
     [SerializeField] private LayerMask m_WhatIsGround;                          // маска определ€юща€ то что €вл€етс€ проходимой поверхностью
     [SerializeField] private Transform m_GroundCheck;                           // сохран€ет информацию о том соприкосаетс€ ли персонаж с поверхностью или находитс€ в воздух
     [SerializeField] private Transform m_HeadCheck;
     [SerializeField] private Transform cont;
     [SerializeField] private bool Up = false;
+    [SerializeField] private float speedLadder = 5f;
     public int energyForDush;
     const float k_GroundedRadius = .2f; 
-    private bool m_Grounded;
+    public bool m_Grounded;
     public bool cooldown = true;
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true;  // определить сторону в которую смотрит персонаж
@@ -45,13 +46,13 @@ public class CharacterController2D : MonoBehaviour
         {
             if (Input.GetAxisRaw("Vertical") == 1)
             {
-                m_Rigidbody2D.AddForce(new Vector2(0f, 20));
-                Physics2D.gravity = new Vector2(0, 0);
-
+                m_Rigidbody2D.gravityScale = 0;
+                m_Rigidbody2D.MovePosition(m_Rigidbody2D.position + new Vector2(0f, 1f) * speedLadder * Time.deltaTime);
             }
-            else
+            else if(Input.GetAxisRaw("Vertical") == -1)
             {
-                m_Rigidbody2D.AddForce(new Vector2(0f, -10));
+                m_Rigidbody2D.gravityScale = 0;
+                m_Rigidbody2D.MovePosition(m_Rigidbody2D.position - new Vector2(0f, 1f) * speedLadder * Time.deltaTime);
             }
         }
         else
@@ -85,6 +86,7 @@ public class CharacterController2D : MonoBehaviour
         if (collision.gameObject.tag == "GameController")
         {
             is_Climbing = true;
+            m_Rigidbody2D.gravityScale = 0;
         }
 
     }
@@ -93,6 +95,7 @@ public class CharacterController2D : MonoBehaviour
         if (collision.gameObject.tag == "GameController")
         {
             is_Climbing = false;
+            m_Rigidbody2D.gravityScale = 3;
         }
     }
     public void Move(float move, bool jump, string Vinyl)
